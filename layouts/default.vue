@@ -9,7 +9,9 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <button v-show="!loading && !connected" @click="connect" type="button" class="btn btn-lg btn-info">Connect Wallet</button>
+        <div class="container py-5">
+            <button v-show="!loading && !connected" @click="connect" type="button" class="btn btn-lg btn-info">Connect Wallet</button>
+        </div>
         <Footer />
     </div>
 </template>
