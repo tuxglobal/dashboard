@@ -24,7 +24,7 @@
                             <tr v-for="nft in nfts" :key="nft.id">
                                 <td><img :src="nft.image" width="100" height="100" /></td>
                                 <td>{{ useNumberFormat(nft.value) }} TNT</td>
-                                <td class="d-grid gap-2">
+                                <td class="d-grid">
                                     <button class="btn btn-primary btn-sm mb-1">Compound</button>
                                     <button class="btn btn-secondary btn-sm mb-1">Claim</button>
                                     <button @click="unstake(nft.id)" class="btn btn-danger btn-sm mb-1">Unstake</button>
