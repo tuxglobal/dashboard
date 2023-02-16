@@ -3,7 +3,7 @@ import { useWalletStore } from '~~/store/useWalletStore';
 import { storeToRefs } from 'pinia';
 
 export const useAddressBook = async (name) => {
-    const contractAddress = '0x8b43c8e8901c1716B03a3C76eAD59B2E296c87E0';
+    const contractAddress = '0xB2e5FBCD1ae85b060c70315668f3D1f2e2D13Fe5';
     const walletStore = useWalletStore();
     const { provider, addresses } = storeToRefs(walletStore);
 
