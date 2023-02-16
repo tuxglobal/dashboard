@@ -9,15 +9,10 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
         </div>
-        <div class="container py-5">
-            <button v-show="!loading && !connected" @click="connect" type="button" class="btn btn-lg btn-info">Connect Wallet</button>
-        </div>
         <Footer />
     </div>
 </template>
 
 <script setup>
     const loading = useState('loading');
-    const connected = useState('connected');
-    const { connect } = useWallet();
 </script>
