@@ -1,12 +1,16 @@
 import Onboard from '@web3-onboard/core';
 import injectedModule from '@web3-onboard/injected-wallets';
 import walletConnectModule from '@web3-onboard/walletconnect';
+import coinbaseWalletModule from '@web3-onboard/coinbase';
+import gnosisModule from '@web3-onboard/gnosis';
 import { ethers } from 'ethers';
 const injected = injectedModule();
 const walletConnect = walletConnectModule({
     version: 2,
     projectId: '0e1d2755a1274e65f568212a554864fa',
 });
+const coinbaseWallet = coinbaseWalletModule();
+const gnosisWallet = gnosisModule();
 
 // PROPERTIES
 const CHAIN_ID = '0x5';
@@ -25,6 +29,8 @@ export const useWalletStore = defineStore('walletStore', {
             wallets: [
                 injected,
                 walletConnect,
+                coinbaseWallet,
+                gnosisWallet,
             ],
             chains: [
                 {
