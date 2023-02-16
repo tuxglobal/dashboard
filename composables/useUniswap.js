@@ -1,5 +1,5 @@
 import { ethers } from 'ethers';
-import { useWalletStore } from '~/store/useWalletStore';
+import { useWalletStore } from '~~/store/useWalletStore';
 import { storeToRefs } from 'pinia';
 
 export const useUniswap = () => {
@@ -18,7 +18,7 @@ export const useUniswap = () => {
 
     const swap = async (inToken, outToken, amount) => {
         await useErc20().approve(inToken, useAddressBook('router'), amount);
-        const transaction = await contract().populateTransaction.swapExactTokensForTokens(
+        const transaction = await contract().populateTransaction.swapExactTokensForTokensSupportingFeeOnTransferTokens(
             amount,
             0,
             [useAddressBook(inToken), useAddressBook(outToken)],

@@ -1,6 +1,7 @@
 import { useWalletStore } from '~~/store/useWalletStore';
 import { storeToRefs } from 'pinia';
 import { useStaking } from './useStaking';
+import { useAddressBook } from './useAddressBook';
 
 export const useWallet = () => {
     const walletStore = useWalletStore();
@@ -33,6 +34,7 @@ export const useWallet = () => {
     const tuxBalance = useState('tuxBalance', () => 0);
     const wcBalance = useState('wcBalance', () => 0);
     const rcBalance = useState('rcBalance', () => 0);
+    const collateralBalance = useState('collateralBalance', () => 0);
     const price = useState('price', () => 0);
     const nfts = useState('nfts', () => []);
 
@@ -48,6 +50,7 @@ export const useWallet = () => {
         usdcBalance.value = await useErc20().balance('usdc', address.value);
         tuxBalance.value = await useErc20().balance('tux', address.value);
         wcBalance.value = await useStaking().stakedAmount(address.value);
+        collateralBalance.value = await useErc20().balance('usdc', await useAddressBook('collateralVault'));
         let output = await useUniswap().output('tux', 'usdc', "1000000000000000000");
         price.value = output[1].toString();
         nfts.value = await useStaking().nfts(address.value);

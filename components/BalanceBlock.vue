@@ -24,6 +24,10 @@
                         <th scope="row">Red Carpet</th>
                         <td>{{ useNumberFormat(rcBalance) }}</td>
                     </tr>
+                    <tr>
+                        <th scope="row">Collateral Vault</th>
+                        <td>{{ useNumberFormat(collateralBalance) }}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -36,4 +40,5 @@
     const tuxBalance = useState('tuxBalance', () => 0);
     const wcBalance = useState('wcBalance', () => 0);
     const rcBalance = useState('rcBalance', () => 0);
+    const collateralBalance = useState('collateralBalance', () => 0);
 </script>
