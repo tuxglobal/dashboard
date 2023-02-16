@@ -19,9 +19,11 @@
 <script setup>
     const amount = ref(0);
     const tuxBalance = useState('tuxBalance', () => 0);
+    const nfts = useState('nfts', () => []);
 
     const max = () => {
         amount.value = useNumberFormat(tuxBalance.value);
+        console.log(nfts);
     }
 
     const stake = async () => {

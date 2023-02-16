@@ -1,5 +1,6 @@
 import { useWalletStore } from '~~/store/useWalletStore';
 import { storeToRefs } from 'pinia';
+import { useStaking } from './useStaking';
 
 export const useWallet = () => {
     const walletStore = useWalletStore();
@@ -33,6 +34,7 @@ export const useWallet = () => {
     const wcBalance = useState('wcBalance', () => 0);
     const rcBalance = useState('rcBalance', () => 0);
     const price = useState('price', () => 0);
+    const nfts = useState('nfts', () => []);
 
     const connect = async () => {
         await connectWallet();
@@ -48,6 +50,7 @@ export const useWallet = () => {
         wcBalance.value = await useStaking().stakedAmount(address.value);
         let output = await useUniswap().output('tux', 'usdc', "1000000000000000000");
         price.value = output[1].toString();
+        nfts.value = await useStaking().nfts(address.value);
         refreshingWallet = false;
     }
 
