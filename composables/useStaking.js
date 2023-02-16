@@ -1,6 +1,7 @@
 import { ethers } from 'ethers';
 import { useWalletStore } from '~~/store/useWalletStore';
 import { storeToRefs } from 'pinia';
+import { decode } from 'js-base64';
 
 export const useStaking = () => {
     const walletStore = useWalletStore();
@@ -20,11 +21,13 @@ export const useStaking = () => {
         const balance = await contract().balanceOf(address.value);
         const nfts = [];
         for(let i = 0; i < balance; i++) {
+            let id = (await contract().tokenOfOwnerByIndex(address.value, i)).toString();
             nfts.push({
-                id: await contract().tokenOfOwnerByIndex(address.value, i),
-                type: await contract().tokenType(i),
-                image: await contract().tokenImage(i),
-                value: await contract().tokenValue(i),
+                id: id,
+                type: (await contract().tokenType(id)).toString(),
+                image: await contract().tokenImage(id),
+                value: (await contract().tokenValue(id)).toString(),
+                meta: JSON.parse(decode((await contract().tokenURI(id)).split(',').pop())),
             })
         }
         return nfts;
@@ -33,7 +36,13 @@ export const useStaking = () => {
     const stake = async (amount) => {
         await useErc20().approve('tux', useAddressBook('staking'), amount);
         const transaction = await contract().populateTransaction.stake(amount);
-        console.log(transaction);
+        const receipt = await walletStore.sendTransaction(transaction);
+        useWallet().refresh();
+        return receipt;
+    }
+
+    const unstake = async (id) => {
+        const transaction = await contract().populateTransaction.unstake(id);
         const receipt = await walletStore.sendTransaction(transaction);
         useWallet().refresh();
         return receipt;
@@ -43,5 +52,6 @@ export const useStaking = () => {
         stakedAmount,
         nfts,
         stake,
+        unstake,
     }
 }

@@ -54,6 +54,7 @@ export const useWallet = () => {
         let output = await useUniswap().output('tux', 'usdc', "1000000000000000000");
         price.value = output[1].toString();
         nfts.value = await useStaking().nfts(address.value);
+        console.log(nfts.value);
         refreshingWallet = false;
     }
 

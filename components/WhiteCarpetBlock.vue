@@ -11,6 +11,28 @@
                         <button @click="stake" class="btn btn-primary" style="width: 100px;">Stake</button>
                     </div>
                 </div>
+                <div v-show="nfts.length" class="mb-3">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">NFT</th>
+                                <th scope="col">Value</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="nft in nfts" :key="nft.id">
+                                <td><img :src="nft.image" width="100" height="100" /></td>
+                                <td>{{ useNumberFormat(nft.value) }} TNT</td>
+                                <td class="d-grid gap-2">
+                                    <button class="btn btn-primary btn-sm mb-1">Compound</button>
+                                    <button class="btn btn-secondary btn-sm mb-1">Claim</button>
+                                    <button @click="unstake(nft.id)" class="btn btn-danger btn-sm mb-1">Unstake</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
@@ -28,5 +50,9 @@
 
     const stake = async () => {
         useStaking().stake(BigInt(amount.value * 10 ** 18));
+    }
+
+    const unstake = async (id) => {
+        useStaking().unstake(id);
     }
 </script>
