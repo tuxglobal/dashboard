@@ -15,6 +15,9 @@
                 <div class="col-md-6 mb-4">
                     <RedCarpetBlock />
                 </div>
+                <div class="col-md-6 mb-4">
+                    <ContractsBlock />
+                </div>
             </div>
         </div>
     </div>

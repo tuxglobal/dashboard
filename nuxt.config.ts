@@ -3,6 +3,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             addressbook: process.env.ADDRESSBOOK,
+            blockexplorer: process.env.BLOCKEXPLORER,
         },
     },
     modules: [
