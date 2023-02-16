@@ -10,5 +10,6 @@ export default defineNuxtConfig({
             ['defineStore', 'definePiniaStore'],
         ],
     },
+    ssr: false,
     css: ['~/assets/css/main.scss'],
 });
