@@ -9,9 +9,6 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <NuxtLink to="/getting-started" class="nav-link">Getting Started</NuxtLink>
-                        </li>
-                        <li class="nav-item">
                             <NuxtLink to="/dashboard" class="nav-link">Dashboard</NuxtLink>
                         </li>
                     </ul>
