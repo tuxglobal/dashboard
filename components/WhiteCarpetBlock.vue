@@ -4,7 +4,7 @@
             <h5 class="card-title mb-5">White Carpet Staking</h5>
             <div class="card-text">
                 <div class="mb-3">
-                    <label for="amount" class="form-label">Stake TNT</label>
+                    <label for="amount" class="form-label">Stake TUX</label>
                     <div class="input-group">
                         <input v-model="amount" class="form-control inline" id="from"/>
                         <button @click="max" class="btn btn-secondary" style="width: 100px;">Max</button>
