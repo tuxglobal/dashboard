@@ -25,5 +25,6 @@
 </template>
 
 <script setup>
-    const { connect, connected } = useWallet();
+    const { connect } = useWallet();
+    const connected = useState('connected');
 </script>

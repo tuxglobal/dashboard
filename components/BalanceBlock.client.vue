@@ -13,16 +13,16 @@
                         <td>{{ useNumberFormat(usdcBalance) }}</td>
                     </tr>
                     <tr>
-                        <th scope="row">TNT</th>
-                        <td>320.0000</td>
+                        <th scope="row">TUX</th>
+                        <td>{{ useNumberFormat(tuxBalance) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">White Carpet</th>
-                        <td>14232.1107</td>
+                        <td>{{ useNumberFormat(wcBalance) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Red Carpet</th>
-                        <td>2000.0000</td>
+                        <td>{{ useNumberFormat(rcBalance) }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -33,4 +33,7 @@
 <script setup>
     const ethBalance = useState('ethBalance', () => 0);
     const usdcBalance = useState('usdcBalance', () => 0);
+    const tuxBalance = useState('tuxBalance', () => 0);
+    const wcBalance = useState('wcBalance', () => 0);
+    const rcBalance = useState('rcBalance', () => 0);
 </script>
