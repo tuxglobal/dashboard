@@ -1,6 +1,5 @@
 import { useWalletStore } from '~~/store/useWalletStore';
 import { storeToRefs } from 'pinia';
-import { useStaking } from './useStaking.client';
 
 export const useWallet = () => {
     const walletStore = useWalletStore();

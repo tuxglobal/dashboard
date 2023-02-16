@@ -7,13 +7,13 @@
                     <BalanceBlock />
                 </div>
                 <div class="col-md-6 mb-4">
-                    <SwapBlock/>
+                    <SwapBlock />
                 </div>
                 <div class="col-md-6 mb-4">
-                    <WhiteCarpetBlock/>
+                    <WhiteCarpetBlock />
                 </div>
                 <div class="col-md-6 mb-4">
-                    <RedCarpetBlock/>
+                    <RedCarpetBlock />
                 </div>
             </div>
         </div>

@@ -17,8 +17,6 @@
 </template>
 
 <script setup>
-import { useStaking } from '~~/composables/useStaking.client';
-
     const amount = ref(0);
     const tuxBalance = useState('tuxBalance', () => 0);
 
