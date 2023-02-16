@@ -21,5 +21,8 @@
 </template>
 
 <script setup>
+    useSeoMeta({
+        title: 'Dashboard',
+    });
     const connected = useState('connected');
 </script>
