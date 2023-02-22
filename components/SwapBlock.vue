@@ -57,6 +57,13 @@
     });
 
     const swap = async () => {
-        useUniswap().swap(fromCurrency.value.toLowerCase(), toCurrency.value.toLowerCase(), BigInt(amount.value * 10 ** 18));
+        let from = 'Usdc';
+        let to = 'Tux';
+        if(fromCurrency.value.toLowerCase() == 'tux')
+        {
+            from = 'Tux';
+            to = 'Usdc';
+        }
+        useUniswap().swap(from, to, BigInt(amount.value * 10 ** 18));
     }
 </script>
