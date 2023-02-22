@@ -13,7 +13,9 @@
                         </li>
                     </ul>
                     <div class="d-flex">
+                        <a href="https://faucetlink.to/goerli" class="btn btn-lg btn-info me-1">Goerli Faucets</a>
                         <button v-show="!connected" @click="connect" type="button" class="btn btn-lg btn-info">Connect Wallet</button>
+                        <button v-show="connected" @click="mintUsdc" type="button" class="btn btn-lg btn-info">Mint USDC</button>
                     </div>
                 </div>
             </div>
@@ -24,4 +26,8 @@
 <script setup>
     const { connect } = useWallet();
     const connected = useState('connected');
+
+    const mintUsdc = async () => {
+        useUsdc().mint();
+    }
 </script>

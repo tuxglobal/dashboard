@@ -18,9 +18,6 @@
                 <div class="col-md-6 mb-4">
                     <ContractsBlock />
                 </div>
-                <div class="col-md-6 mb-4">
-                    <UsdcBlock />
-                </div>
             </div>
         </div>
     </div>
