@@ -16,6 +16,7 @@ export const useAddressBook = async (name) => {
     const contract = new ethers.Contract(contractAddress, abi, provider.value);
 
     const address = await contract.get(name);
+    walletStore.setAddress('AddressBook', contractAddress);
     walletStore.setAddress(name, address);
     return address;
 }
