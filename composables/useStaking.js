@@ -34,6 +34,7 @@ export const useStaking = () => {
     }
 
     const stake = async (amount) => {
+        await useErc20().approve('Staking', useAddressBook('Staking'), amount);
         const transaction = await contract().populateTransaction.stake(amount);
         const receipt = await walletStore.sendTransaction(transaction);
         useWallet().refresh();
