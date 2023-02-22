@@ -13,9 +13,9 @@ const coinbaseWallet = coinbaseWalletModule();
 const gnosisWallet = gnosisModule();
 
 // PROPERTIES
-const CHAIN_ID = '0x5';
-const CHAIN_NAME = 'Goerli Testnet';
-const RPC_URL = 'https://goerli.infura.io/v3/c171275cf15d4d788ebc779f40681d07';
+const CHAIN_ID = '0xaa36a7';
+const CHAIN_NAME = 'Sepolia Testnet';
+const RPC_URL = 'https://sepolia.infura.io/v3/c171275cf15d4d788ebc779f40681d07';
 const APP_NAME = 'TUX';
 const APP_DESCRIPTION = 'TUX Defi';
 
