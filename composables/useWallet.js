@@ -47,11 +47,11 @@ export const useWallet = () => {
         refreshingWallet = true;
         await refreshWallet();
         ethBalance.value = await provider.value.getBalance(address.value);
-        usdcBalance.value = await useErc20().balance('usdc', address.value);
-        tuxBalance.value = await useErc20().balance('tux', address.value);
+        usdcBalance.value = await useErc20().balance('Usdc', address.value);
+        tuxBalance.value = await useErc20().balance('Tux', address.value);
         wcBalance.value = await useStaking().stakedAmount(address.value);
-        collateralBalance.value = await useErc20().balance('usdc', await useAddressBook('collateralVault'));
-        let output = await useUniswap().output('tux', 'usdc', "1000000000000000000");
+        collateralBalance.value = await useErc20().balance('Usdc', await useAddressBook('CollateralVault'));
+        let output = await useUniswap().output('Tux', 'Usdc', "1000000000000000000");
         price.value = output[1].toString();
         nfts.value = await useStaking().nfts(address.value);
         console.log(nfts.value);
