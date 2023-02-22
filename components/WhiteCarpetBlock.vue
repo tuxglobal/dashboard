@@ -49,8 +49,7 @@
     }
 
     const stake = async () => {
-        await useErc20().approve('Tux', await useAddressBook('Staking'), BigInt(amount.value * 10 ** 18));
-        useStaking().stake(BigInt(amount.value * 10 ** 18));
+        await useStaking().stake(BigInt(amount.value * 10 ** 18));
     }
 
     const unstake = async (id) => {
