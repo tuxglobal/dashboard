@@ -3,7 +3,7 @@
         <div class="card-body">
             <div class="card-text">
                 <div class="d-grid gap-2 mt-4">
-                    <button @click="mint" class="btn btn-lg btn-primary">Mint USDC</button>
+                    <button @click="mintUsdc" class="btn btn-lg btn-primary">Mint USDC</button>
                 </div>
             </div>
         </div>
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-    const mint = async () => {
+    const mintUsdc = async () => {
         useUsdc().mint();
     }
 </script>
