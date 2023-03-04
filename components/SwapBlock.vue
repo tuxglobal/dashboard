@@ -1,31 +1,31 @@
 <template>
-    <div class="card h-100">
-        <div class="card-body">
-            <h5 class="card-title mb-5">Swap</h5>
-            <div class="card-text">
-                <p>Current TUX price: <strong>{{ useNumberFormat(price) }} USDC</strong></p>
-                <div class="mb-3">
-                    <label for="from" class="form-label">From</label>
-                    <div class="input-group">
-                        <div class="input-group-text"><strong>{{ fromCurrency }}</strong></div>
-                        <input v-model="amount" class="form-control inline" id="from"/>
-                        <button @click="max" class="btn btn-secondary" style="width: 100px;">Max</button>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="from" class="form-label">To</label>
-                    <div class="input-group">
-                        <div class="input-group-text"><strong>{{ toCurrency }}</strong></div>
-                        <input v-model="receive" class="form-control inline" id="from" disabled/>
-                        <button @click="switchCurrencies" class="btn btn-secondary" style="width: 100px;">^</button>
-                    </div>
-                </div>
-                <div class="d-grid gap-2 mt-4">
-                    <button @click="swap" class="btn btn-lg btn-primary">Swap</button>
-                </div>
-            </div>
+    
+    <div class="tnt-balance">
+        <span class="tnt-balance-info">CURRENT TUX PRICE: </span>
+        <span class="color-highlight-text"><strong>{{ useNumberFormat(price) }} USDC</strong></span> 
+    </div>
+    
+    <div class="mb-3">
+        <label for="from" class="form-label">From</label>
+        <div class="input-group">
+            <div class="input-group-text"><strong>{{ fromCurrency }}</strong></div>
+            <input v-model="amount" class="form-control inline" id="from"/>
+            <button @click="max" class="btn btn-secondary" style="width: 100px;">Max</button>
         </div>
     </div>
+    <div class="mb-3">
+        <label for="from" class="form-label">To</label>
+        <div class="input-group">
+            <div class="input-group-text"><strong>{{ toCurrency }}</strong></div>
+            <input v-model="receive" class="form-control inline" id="from" disabled />
+            <button @click="switchCurrencies" class="btn btn-secondary" style="width: 100px;">^</button>
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 mt-4">
+        <button @click="swap" class="btn btn-lg btn-secondary">Swap</button>
+    </div>
+
 </template>
 
 <script setup>
