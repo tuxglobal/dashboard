@@ -9,10 +9,10 @@
                 <div class="col-md-6 mb-4">
                     <SwapBlock />
                 </div>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-12 mb-4">
                     <WhiteCarpetBlock />
                 </div>
-                <div class="col-md-6 mb-4">
+                <div class="col-md-12 mb-4">
                     <RedCarpetBlock />
                 </div>
                 <div class="col-md-6 mb-4">
