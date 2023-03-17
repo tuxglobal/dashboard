@@ -26,6 +26,9 @@
                         />
                     </div>
                 </div>
+                <div v-show="rcnfts.length == 0">
+                    You have no Red Carpet NFTs.
+                </div>
             </div>
         </div>
     </div>
