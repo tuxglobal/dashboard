@@ -42,6 +42,7 @@ export const useStaking = () => {
             stakeType: getAttribute(meta, 'stakeType'),
             stakeTypeString: getAttribute(meta, 'stakeTypeString'),
             stakeAmount: getAttribute(meta, 'stakeAmount'),
+            stakeAge: getAttribute(meta, 'stakeAge'),
             stakeStart: getAttribute(meta, 'stakeStart'),
             stakePrice: getAttribute(meta, 'stakePrice'),
             startingStakeAmount: getAttribute(meta, 'startingStakeAmount'),
@@ -68,7 +69,7 @@ export const useStaking = () => {
     }
 
     const stake = async (amount) => {
-        await useErc20().approve('Tux', useAddressBook('Staking'), amount);
+        //await useErc20().approve('Tux', useAddressBook('Staking'), amount);
         const transaction = await contract().populateTransaction.stake(amount);
         const receipt = await walletStore.sendTransaction(transaction);
         useWallet().refresh();

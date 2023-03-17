@@ -18,6 +18,7 @@
                             :stakeType="wcnft.stakeType"
                             :stakeTypeString="wcnft.stakeTypeString"
                             :stakeAmount="wcnft.stakeAmount"
+                            :stakeAge="wcnft.stakeAge"
                             :stakeStart="wcnft.stakeStart"
                             :stakePrice="wcnft.stakePrice"
                             :startingStakeAmount="wcnft.startingStakeAmount"

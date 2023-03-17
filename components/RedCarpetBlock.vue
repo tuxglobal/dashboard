@@ -10,6 +10,7 @@
                             :stakeType="rcnft.stakeType"
                             :stakeTypeString="rcnft.stakeTypeString"
                             :stakeAmount="rcnft.stakeAmount"
+                            :stakeAge="rcnft.stakeAge"
                             :stakeStart="rcnft.stakeStart"
                             :stakePrice="rcnft.stakePrice"
                             :startingStakeAmount="rcnft.startingStakeAmount"

@@ -14,8 +14,8 @@
                                 <td>{{ useNumberFormat(stakeAmount) }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Stake Start</th>
-                                <td>{{ useNumberFormat(stakeStart) }}</td>
+                                <th scope="row">Stake Age</th>
+                                <td>{{ ago }}</td>
                             </tr>
                             <tr v-show="stakeType == 1">
                                 <th scope="row">Entry Price</th>
@@ -57,11 +57,14 @@
 </template>
 
 <script setup>
+    import { format } from 'timeago.js';
+
     const props = defineProps([
         'id',
         'stakeType',
         'stakeTypeString',
         'stakeAmount',
+        'stakeAge',
         'stakeStart',
         'stakePrice',
         'startingStakeAmount',
@@ -75,6 +78,10 @@
         'meta',
         'owned',
     ]);
+
+    const ago = computed(() => {
+        return format(props.stakeStart * 1000);
+    });
 
     const details = ref(false);
 
