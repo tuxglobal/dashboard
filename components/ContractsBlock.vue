@@ -1,22 +1,23 @@
 <template>
-    
-    <div class="heading-text">Contract Addresses</div>
-    <hr />
-    <table class="table table-sm table-striped table-borderless">
-        <thead>
-            <tr>
-                <th scope="col" class="color-highlight-text">NAME</th>
-                <th scope="col" class="color-highlight-text">ADDRESS</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="(value, propertyName) in addresses" :key="propertyName">
-                <th scope="row">{{ propertyName }}</th>
-                <td><a :href="url(value)" target="_new">{{ value }}</a></td>
-            </tr>
-        </tbody>
-    </table>
-        
+    <div class="card h-100">
+        <div class="card-body">
+            <h5 class="card-title mb-5">Contract Addresses</h5>
+            <table class="table card-text">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(value, propertyName) in addresses" :key="propertyName">
+                        <th scope="row">{{ propertyName }}</th>
+                        <td><a :href="url(value)" target="_new">{{ value }}</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </template>
 
 <script setup>

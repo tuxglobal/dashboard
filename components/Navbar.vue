@@ -1,46 +1,33 @@
 <template>
-
-    <div class="color-highlight-bg" style="padding-bottom: 10px;">
-        <div class="p-2 text-end">
-            Analytics | Docs | App
-        </div>
-
-        <header class="color-main-bg p-3">
-            <div class="row">
-                <div class="col-md-2">
-                    <NuxtLink href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none" style="padding-left: 25px;">
-                        <nuxt-img src="/images/tnt-swap-logo.jpg" />
-                    </NuxtLink>
-                </div>
-                <div class="col-md-8">
-                    <ul class="nav mb-2 justify-content-center mb-md-0">
-                        <li><NuxtLink to="/dashboard" class="nav-link px-2">Dashboard</NuxtLink></li>
-                        <li><a href="https://faucetlink.to/sepolia" class="nav-link px-2">Sepolia Faucets</a></li>
-                        <li><a href="#" class="nav-link px-2">ETH Faucet</a></li>
-                        <li><a href="#" class="nav-link px-2">USDC Faucet</a></li>
-                        <li><a href="#" class="nav-link px-2">Buy</a></li>
-                        <li><a href="#" class="nav-link px-2">Sell</a></li>
-                        <li><a href="#" class="nav-link px-2">Stake</a></li>
-                        <li><a href="#" class="nav-link px-2">Marketplace</a></li>
+    <div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <NuxtLink to="/" class="navbar-brand">TUX</NuxtLink>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <NuxtLink to="/dashboard" class="nav-link">Dashboard</NuxtLink>
+                        </li>
                     </ul>
-                </div>
-                <div class="col-md-2">
-                    <div style="padding-right: 25px;">
-                        <button v-show="connected" @click="mintUsdc" type="button" class="btn btn-outline-primary me-2">Mint USDC</button>
-                        <button v-show="!connected" @click="connect" type="button" class="btn btn-primary color-highlight-border color-highlight-bg">Connect Wallet</button>
+                    <div class="d-flex">
+                        <a href="https://faucetlink.to/sepolia" target="_new" class="btn btn-lg btn-info me-1">Sepolia Faucets</a>
+                        <button v-show="!connected" @click="connect" type="button" class="btn btn-lg btn-info">Connect Wallet</button>
+                        <button v-show="connected" @click="mintUsdc" type="button" class="btn btn-lg btn-info">Mint USDC</button>
                     </div>
                 </div>
             </div>
-        </header>
+        </nav>
     </div>
-
 </template>
 
 <script setup>
-const { connect } = useWallet();
-const connected = useState('connected');
+    const { connect } = useWallet();
+    const connected = useState('connected');
 
-const mintUsdc = async () => {
-    useUsdc().mint();
-}
+    const mintUsdc = async () => {
+        useUsdc().mint();
+    }
 </script>

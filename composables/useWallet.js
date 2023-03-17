@@ -32,11 +32,10 @@ export const useWallet = () => {
     const ethBalance = useState('ethBalance', () => 0);
     const usdcBalance = useState('usdcBalance', () => 0);
     const tuxBalance = useState('tuxBalance', () => 0);
-    const wcBalance = useState('wcBalance', () => 0);
-    const rcBalance = useState('rcBalance', () => 0);
     const collateralBalance = useState('collateralBalance', () => 0);
     const price = useState('price', () => 0);
-    const nfts = useState('nfts', () => []);
+    const wcnfts = useState('wcnfts', () => []);
+    const rcnfts = useState('rcnfts', () => []);
 
     const connect = async () => {
         await connectWallet();
@@ -49,12 +48,13 @@ export const useWallet = () => {
         ethBalance.value = await provider.value.getBalance(address.value);
         usdcBalance.value = await useErc20().balance('Usdc', address.value);
         tuxBalance.value = await useErc20().balance('Tux', address.value);
-        wcBalance.value = await useStaking().stakedAmount(address.value);
         collateralBalance.value = await useErc20().balance('Usdc', await useAddressBook('CollateralVault'));
         let output = await useUniswap().output('Tux', 'Usdc', "1000000000000000000");
         price.value = output[1].toString();
-        nfts.value = await useStaking().nfts(address.value);
-        console.log(nfts.value);
+        const nfts = await useStaking().nfts(address.value);
+        if(typeof nfts.wc !== 'undefined') wcnfts.value = nfts.wc;
+        if(typeof nfts.rc !== 'undefined') rcnfts.value = nfts.rc;
+        console.log(nfts);
         refreshingWallet = false;
     }
 
