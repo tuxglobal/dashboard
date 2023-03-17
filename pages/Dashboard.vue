@@ -12,7 +12,7 @@
                 <div class="col-md-12 mb-4">
                     <WhiteCarpetBlock />
                 </div>
-                <div class="col-md-12 mb-4">
+                <div v-show="rcnfts.length" class="col-md-12 mb-4">
                     <RedCarpetBlock />
                 </div>
                 <div class="col-md-6 mb-4">
@@ -31,4 +31,5 @@
         title: 'Dashboard',
     });
     const connected = useState('connected');
+    const rcnfts = useState('rcnfts', () => []);
 </script>
