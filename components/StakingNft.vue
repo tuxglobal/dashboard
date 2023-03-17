@@ -22,23 +22,19 @@
                                 <td>{{ useNumberFormat(stakePrice) }}</td>
                             </tr>
                             <tr v-show="stakeType == 1">
-                                <th scope="row">Starting Stake Amount</th>
-                                <td>{{ useNumberFormat(startingStakeAmount) }}</td>
-                            </tr>
-                            <tr v-show="stakeType == 1">
-                                <th scope="row">Available Dividends</th>
+                                <th scope="row">Available Rewards</th>
                                 <td>{{ useNumberFormat(availableDividends) }}</td>
                             </tr>
                             <tr v-show="stakeType == 2">
-                                <th scope="row">TUX Refund Available</th>
+                                <th scope="row">TUX Refund</th>
                                 <td>{{ useNumberFormat(tuxRefundAvailable) }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">RC Value</th>
+                                <th scope="row">USDC Value</th>
                                 <td>{{ useNumberFormat(rcValue) }}</td>
                             </tr>
                             <tr v-show="stakeType == 2">
-                                <th scope="row">RC Reward Available</th>
+                                <th scope="row">USDC Available</th>
                                 <td>{{ useNumberFormat(rcRewardAvailable) }}</td>
                             </tr>
                         </tbody>
@@ -82,12 +78,6 @@
     const ago = computed(() => {
         return format(props.stakeStart * 1000);
     });
-
-    const details = ref(false);
-
-    const toggleDetails = () => {
-        details.value = !details.value;
-    }
 
     const claim = async () => {
         await useStaking().claim(props.id);
