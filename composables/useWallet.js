@@ -36,6 +36,8 @@ export const useWallet = () => {
     const price = useState('price', () => 0);
     const wcnfts = useState('wcnfts', () => []);
     const rcnfts = useState('rcnfts', () => []);
+    const usdcDecimals = useState('usdcDecimals', () => 0);
+    const tuxDecimals = useState('tuxDecimals', () => 0);
 
     const connect = async () => {
         await connectWallet();
@@ -52,9 +54,10 @@ export const useWallet = () => {
         let output = await useUniswap().output('Tux', 'Usdc', "1000000000000000000");
         price.value = output[1].toString();
         const nfts = await useStaking().nfts(address.value);
+        usdcDecimals.value = await useErc20().decimals('Usdc');
+        tuxDecimals.value = await useErc20().decimals('Tux');
         if(typeof nfts.wc !== 'undefined') wcnfts.value = nfts.wc;
         if(typeof nfts.rc !== 'undefined') rcnfts.value = nfts.rc;
-        console.log(nfts);
         refreshingWallet = false;
     }
 

@@ -42,11 +42,12 @@
 <script setup>
     const amount = ref(0);
     const tuxBalance = useState('tuxBalance', () => 0);
+    const tuxDecimals = useState('tuxDecimals', () => 0);
     const wcnfts = useState('wcnfts', () => []);
     const show = ref(0);
 
     const max = () => {
-        amount.value = useNumberFormat(tuxBalance.value);
+        amount.value = useNumberFormat(tuxBalance.value, tuxDecimals.value);
     }
 
     const stake = async () => {

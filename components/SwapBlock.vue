@@ -3,7 +3,7 @@
         <div class="card-body">
             <h5 class="card-title mb-5">Swap</h5>
             <div class="card-text">
-                <p>Current TUX price: <strong>{{ useNumberFormat(price) }} USDC</strong></p>
+                <p>Current TUX price: <strong>{{ useNumberFormat(price, usdcDecimals) }} USDC</strong></p>
                 <div class="mb-3">
                     <label for="from" class="form-label">From</label>
                     <div class="input-group">
@@ -36,12 +36,24 @@
     const fromCurrency = ref('USDC');
     const toCurrency = ref('TUX');
     const amount = ref(0);
+    const usdcDecimals = useState('usdcDecimals', () => 0);
+    const tuxDecimals = useState('tuxDecimals', () => 0);
 
     const max = () => {
-        if (fromCurrency.value === 'USDC') amount.value = usdcBalance.value;
-        if (fromCurrency.value === 'ETH') amount.value = ethBalance.value;
-        if (fromCurrency.value === 'TUX') amount.value = tuxBalance.value;
-        amount.value = useNumberFormat(amount.value);
+        let decimals = 0;
+        if (fromCurrency.value === 'USDC') {
+            amount.value = usdcBalance.value;
+            decimals = usdcDecimals.value;
+        }
+        if (fromCurrency.value === 'ETH') {
+            amount.value = ethBalance.value;
+            decimals = 18;
+        }
+        if (fromCurrency.value === 'TUX') {
+            amount.value = tuxBalance.value;
+            decimals = tuxDecimals.value;
+        }
+        amount.value = useNumberFormat(amount.value, decimals);
     }
 
     const switchCurrencies = () => {
@@ -52,18 +64,22 @@
     }
 
     const receive = computed(() => {
-        if (fromCurrency.value === 'USDC') return Math.round(((amount.value / useNumberFormat(price.value)) * .95) * 1000) / 1000;
-        if (fromCurrency.value === 'TUX') return Math.round((amount.value * .95) * useNumberFormat(price.value) * 1000) / 1000;
+        if (fromCurrency.value === 'USDC') return Math.round(((amount.value / useNumberFormat(price.value, tuxDecimals.value)) * .95) * 1000) / 1000;
+        if (fromCurrency.value === 'TUX') return Math.round((amount.value * .95) * useNumberFormat(price.value, usdcDecimals.value) * 1000) / 1000;
     });
 
     const swap = async () => {
         let from = 'Usdc';
         let to = 'Tux';
+        let decimals = usdcDecimals.value;
         if(fromCurrency.value.toLowerCase() == 'tux')
         {
             from = 'Tux';
             to = 'Usdc';
+            decimals = tuxDecimals.value;
         }
-        useUniswap().swap(from, to, BigInt(amount.value * 10 ** 18));
+        const swapAmount = BigInt(amount.value * (10 ** decimals));
+        alert(swapAmount.toString());
+        useUniswap().swap(from, to, swapAmount);
     }
 </script>

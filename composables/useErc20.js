@@ -21,8 +21,13 @@ export const useErc20 = () => {
         return await walletStore.sendTransaction(transaction);
     }
 
+    const decimals = async (token) => {
+        return await contract(token).decimals();
+    }
+
     return {
         balance,
         approve,
+        decimals,
     }
 }

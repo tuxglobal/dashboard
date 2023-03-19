@@ -11,7 +11,7 @@
                         <tbody>
                             <tr v-show="stakeType == 1">
                                 <th scope="row">Stake Amount</th>
-                                <td>{{ useNumberFormat(stakeAmount) }}</td>
+                                <td>{{ useNumberFormat(stakeAmount, tuxDecimals) }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">Stake Age</th>
@@ -19,23 +19,23 @@
                             </tr>
                             <tr v-show="stakeType == 1">
                                 <th scope="row">Entry Price</th>
-                                <td>{{ useNumberFormat(stakePrice) }}</td>
+                                <td>{{ useNumberFormat(stakePrice, usdcDecimals) }}</td>
                             </tr>
                             <tr v-show="stakeType == 1">
                                 <th scope="row">Available Rewards</th>
-                                <td>{{ useNumberFormat(availableDividends) }}</td>
+                                <td>{{ useNumberFormat(availableDividends, tuxDecimals) }}</td>
                             </tr>
                             <tr v-show="stakeType == 2">
                                 <th scope="row">TUX Refund</th>
-                                <td>{{ useNumberFormat(tuxRefundAvailable) }}</td>
+                                <td>{{ useNumberFormat(tuxRefundAvailable, tuxDecimals) }}</td>
                             </tr>
                             <tr>
                                 <th scope="row">USDC Value</th>
-                                <td>{{ useNumberFormat(rcValue) }}</td>
+                                <td>{{ useNumberFormat(rcValue, usdcDecimals) }}</td>
                             </tr>
                             <tr v-show="stakeType == 2">
                                 <th scope="row">USDC Available</th>
-                                <td>{{ useNumberFormat(rcRewardAvailable) }}</td>
+                                <td>{{ useNumberFormat(rcRewardAvailable, usdcDecimals) }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -74,6 +74,9 @@
         'meta',
         'owned',
     ]);
+
+    const usdcDecimals = useState('usdcDecimals', () => 0);
+    const tuxDecimals = useState('tuxDecimals', () => 0);
 
     const ago = computed(() => {
         return format(props.stakeStart * 1000);

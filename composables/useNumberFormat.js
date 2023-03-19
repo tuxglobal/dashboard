@@ -1,4 +1,4 @@
 
-export const useNumberFormat = (amount) => {
-    return Math.floor(amount / 10000000000000) / 100000;
+export const useNumberFormat = (amount, decimals) => {
+    return Math.floor(amount / (10 ** (decimals - 2))) / 100;
 }

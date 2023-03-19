@@ -6,19 +6,19 @@
                 <tbody>
                     <tr>
                         <th scope="row">ETH</th>
-                        <td>{{ useNumberFormat(ethBalance) }}</td>
+                        <td>{{ useNumberFormat(ethBalance, 18) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">USDC</th>
-                        <td>{{ useNumberFormat(usdcBalance) }}</td>
+                        <td>{{ useNumberFormat(usdcBalance, usdcDecimals) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">TUX</th>
-                        <td>{{ useNumberFormat(tuxBalance) }}</td>
+                        <td>{{ useNumberFormat(tuxBalance, 18) }}</td>
                     </tr>
                     <tr>
                         <th scope="row">Collateral Vault</th>
-                        <td>{{ useNumberFormat(collateralBalance) }}</td>
+                        <td>{{ useNumberFormat(collateralBalance, usdcDecimals) }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -31,4 +31,6 @@
     const usdcBalance = useState('usdcBalance', () => 0);
     const tuxBalance = useState('tuxBalance', () => 0);
     const collateralBalance = useState('collateralBalance', () => 0);
+    const usdcDecimals = useState('usdcDecimals', () => 0);
+    const tuxDecimals = useState('tuxDecimals', () => 0);
 </script>
