@@ -28,9 +28,9 @@ export const useWalletStore = defineStore('walletStore', {
         onboard: Onboard({
             wallets: [
                 injected,
-                walletConnect,
-                coinbaseWallet,
-                gnosisWallet,
+                //walletConnect,
+                //coinbaseWallet,
+                //gnosisWallet,
             ],
             chains: [
                 {
@@ -108,10 +108,16 @@ export const useWalletStore = defineStore('walletStore', {
             this.addresses[name] = address;
         },
         async sendTransaction(transaction) {
-            //this.loading = true;
-            const tx = await this.signer.sendTransaction(transaction);
-            const receipt = await tx.wait();
-            //this.loading = false;
+            this.loading = true;
+            let receipt;
+            try {
+                const tx = await this.signer.sendTransaction(transaction);
+                receipt = await tx.wait();
+            }
+            catch (e) {
+                alert(e.message);
+            }
+            this.loading = false;
             return receipt;
         }
     },

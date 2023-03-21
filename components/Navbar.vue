@@ -8,9 +8,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <NuxtLink to="/dashboard" class="nav-link">Dashboard</NuxtLink>
-                        </li>
+                        <!--<li class="nav-item">
+                            <NuxtLink to="/" class="nav-link">Dashboard</NuxtLink>
+                        </li>-->
                     </ul>
                     <div class="d-flex">
                         <a href="https://faucetlink.to/sepolia" target="_new" class="btn btn-lg btn-info me-1">Sepolia Faucets</a>

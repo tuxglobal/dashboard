@@ -52,7 +52,7 @@ export const useWallet = () => {
         tuxBalance.value = await useErc20().balance('Tux', address.value);
         collateralBalance.value = await useErc20().balance('Usdc', await useAddressBook('CollateralVault'));
         let output = await useUniswap().output('Tux', 'Usdc', "1000000000000000000");
-        price.value = output[1].toString();
+        price.value = output.toString();
         const nfts = await useStaking().nfts(address.value);
         usdcDecimals.value = await useErc20().decimals('Usdc');
         tuxDecimals.value = await useErc20().decimals('Tux');

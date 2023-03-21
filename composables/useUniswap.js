@@ -13,7 +13,8 @@ export const useUniswap = () => {
     }
 
     const output = async (inToken, outToken, amount) => {
-        return await contract().getAmountsOut(amount, [useAddressBook(inToken), useAddressBook(outToken)]);
+        const result = await contract().getAmountsOut(amount, [useAddressBook(inToken), useAddressBook(outToken)]);
+        return result[1];
     }
 
     const swap = async (inToken, outToken, amount) => {

@@ -44,7 +44,6 @@
     const tuxBalance = useState('tuxBalance', () => 0);
     const tuxDecimals = useState('tuxDecimals', () => 0);
     const wcnfts = useState('wcnfts', () => []);
-    const show = ref(0);
 
     const max = () => {
         amount.value = useNumberFormat(tuxBalance.value, tuxDecimals.value);
@@ -53,25 +52,4 @@
     const stake = async () => {
         await useStaking().stake(BigInt(amount.value * 10 ** 18));
     }
-
-    const showDetails = (id) => {
-        if(show.value == id) {
-            show.value = 0;
-            return;
-        }
-        show.value = id;
-    }
-
-    const unstake = async (id) => {
-        useStaking().unstake(id);
-    }
-
-    const compound = async (id) => {
-        useStaking().compound(id);
-    }
-
-    const claim = async (id) => {
-        useStaking().claim(id);
-    }
-
 </script>

@@ -36,8 +36,32 @@
     const fromCurrency = ref('USDC');
     const toCurrency = ref('TUX');
     const amount = ref(0);
+    const receive = ref(0);
     const usdcDecimals = useState('usdcDecimals', () => 0);
     const tuxDecimals = useState('tuxDecimals', () => 0);
+
+    watch(amount, async () => {
+        if(amount.value <= 0) return 0;
+        let from;
+        let to;
+        let decimals;
+        let realAmount;
+        if (fromCurrency.value.toLowerCase() == 'tux') {
+            from = 'Tux';
+            to = 'Usdc';
+            realAmount = BigInt(amount.value * (10 ** tuxDecimals.value));
+            decimals = usdcDecimals.value;
+        }
+        if (fromCurrency.value.toLowerCase() == 'usdc') {
+            from = 'Usdc';
+            to = 'Tux';
+            realAmount = BigInt(amount.value * (10 ** usdcDecimals.value));
+            decimals = tuxDecimals.value;
+        }
+        const result = await useUniswap().output(from, to, realAmount);
+
+        receive.value = useNumberFormat(result.toString(), decimals);
+    })
 
     const max = () => {
         let decimals = 0;
@@ -61,12 +85,9 @@
         fromCurrency.value = toCurrency.value;
         toCurrency.value = temp;
         amount.value = 0;
+        receive.value = 0;
     }
 
-    const receive = computed(() => {
-        if (fromCurrency.value === 'USDC') return Math.round(((amount.value / useNumberFormat(price.value, tuxDecimals.value)) * .95) * 1000) / 1000;
-        if (fromCurrency.value === 'TUX') return Math.round((amount.value * .95) * useNumberFormat(price.value, usdcDecimals.value) * 1000) / 1000;
-    });
 
     const swap = async () => {
         let from = 'Usdc';
@@ -79,7 +100,8 @@
             decimals = tuxDecimals.value;
         }
         const swapAmount = BigInt(amount.value * (10 ** decimals));
-        alert(swapAmount.toString());
         useUniswap().swap(from, to, swapAmount);
+        amount.value = 0;
+        receive.value = 0;
     }
 </script>
