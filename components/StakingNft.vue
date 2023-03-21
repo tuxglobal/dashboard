@@ -13,7 +13,7 @@
                                 <th scope="row">Stake Amount</th>
                                 <td>{{ useNumberFormat(stakeAmount, tuxDecimals) }}</td>
                             </tr>
-                            <tr>
+                            <tr v-show="stakeType != 3">
                                 <th scope="row">Stake Age</th>
                                 <td>{{ ago }}</td>
                             </tr>
@@ -29,7 +29,7 @@
                                 <th scope="row">TUX Refund</th>
                                 <td>{{ useNumberFormat(tuxRefundAvailable, tuxDecimals) }}</td>
                             </tr>
-                            <tr>
+                            <tr v-show="stakeType != 3">
                                 <th scope="row">USDC Value</th>
                                 <td>{{ useNumberFormat(rcValue, usdcDecimals) }}</td>
                             </tr>
