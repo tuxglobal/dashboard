@@ -2,7 +2,7 @@
     <div class="card">
         <div class="row g-0">
             <div class="col-md-4">
-                <img :src="meta.image" class="img-fluid rounded-start" :alt="stakeTypeString + ' #' + id">
+                <img :src="image" class="img-fluid rounded-start" :alt="stakeTypeString + ' #' + id">
             </div>
             <div class="col-md-8">
                 <div class="card-body">
@@ -80,6 +80,12 @@
 
     const ago = computed(() => {
         return format(props.stakeStart * 1000);
+    });
+
+    const image = computed(() => {
+        if(props.meta.image) {
+            return props.meta.image.replace('ipfs://', 'https://cloudflare-ipfs.com/ipfs/');
+        }
     });
 
     const claim = async () => {
