@@ -1,7 +1,7 @@
 <template>
     <div>
-       <h1>Dashboard</h1>
-        <div class="py-5">
+        <h1 class="mb-4 mt-0 pt-0 pb-0">Dashboard</h1>
+        <div>
             <div v-show="connected" class="row gx-5">
                 <div class="col-md-6 mb-4">
                     <BalanceBlock />

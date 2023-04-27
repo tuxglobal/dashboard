@@ -1,27 +1,28 @@
 <template>
     <div class="card h-100">
         <div class="card-body">
-            <h5 class="card-title mb-5">Swap</h5>
+            <h5 class="card-title mb-4">Swap for Tux Tokens</h5>
             <div class="card-text">
-                <p>Current TUX price: <strong>{{ useNumberFormat(price, usdcDecimals) }} USDC</strong></p>
+                <p class="fs-5 letter-spacing-sm">Current TUX price: <strong>{{ useNumberFormat(price, usdcDecimals) }} USDC</strong></p>
+                <hr />
                 <div class="mb-3">
-                    <label for="from" class="form-label">From</label>
+                    <label for="from" class="form-label">Swap</label>
                     <div class="input-group">
-                        <div class="input-group-text"><strong>{{ fromCurrency }}</strong></div>
-                        <input v-model="amount" class="form-control inline" id="from"/>
-                        <button @click="max" class="btn btn-secondary" style="width: 100px;">Max</button>
+                        <div class="input-group-text p-3"><strong>{{ fromCurrency }}</strong></div>
+                        <input v-model="amount" class="form-control p-3 inline" id="from"/>
+                        <button @click="max" class="btn btn-secondary p-3" style="width: 100px;">Max</button>
                     </div>
                 </div>
                 <div class="mb-3">
                     <label for="from" class="form-label">To</label>
                     <div class="input-group">
-                        <div class="input-group-text"><strong>{{ toCurrency }}</strong></div>
-                        <input v-model="receive" class="form-control inline" id="from" disabled/>
-                        <button @click="switchCurrencies" class="btn btn-secondary" style="width: 100px;">^</button>
+                        <div class="input-group-text p-3"><strong>{{ toCurrency }}</strong></div>
+                        <input v-model="receive" class="form-control inline p-3" id="from" disabled />
+                        <button @click="switchCurrencies" class="btn btn-secondary p-3" style="width: 100px;">^</button>
                     </div>
                 </div>
                 <div class="d-grid gap-2 mt-4">
-                    <button @click="swap" class="btn btn-lg btn-primary">Swap</button>
+                    <button @click="swap" class="btn btn-lg btn-primary pt-3 pb-3">Swap Now</button>
                 </div>
             </div>
         </div>

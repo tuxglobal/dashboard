@@ -1,1 +1,105 @@
 @import 'bootstrap/scss/bootstrap';
+
+$border-radius: 25px;
+$border-radius-small: 15px;
+$padding: 20px;
+$light-color: #fff;
+$dark-color: #000;
+$red-color: #85171c;
+$red-bright-color: #ab2126;
+$gray-color: #595a5a;
+$gray-dark-color: #433d3e;
+$orange-color: #e7b964;
+$orange-dark-color: #d9ac57;
+
+body {
+    background: $red-color;
+}
+body, a, .navbar-brand, h1, .card-title, table.card-text, .card-text th, .card-text td {
+    color: $light-color;
+}
+h1 { 
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.bright-red-bg {
+    background-color: $red-bright-color !important;
+}
+.card-title {
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-size: 24px;
+}
+.btn {
+    border-radius: $border-radius-small;
+}
+.btn-primary {
+    background-color: $orange-color;
+    border: 0;
+    font-weight: 500;
+    color: $dark-color !important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.btn-primary:hover {
+    background-color: $orange-dark-color;
+    border: 0;
+}
+.btn-secondary {
+    background-color: $red-bright-color;
+    border: 0;
+}
+.btn-secondary:hover {
+    background-color: $red-bright-color;
+    border: 0;
+}
+.card {
+    background-color: $gray-color;
+    border-radius: $border-radius;
+    padding: $padding;
+}
+table.card-text, table.card-text th, table.card-text td {
+    font-weight: 400;
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+.need-help {
+    background: $orange-color;
+    border-bottom-left-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    padding: $padding;
+}
+.video-play-button {
+    background: $red-bright-color;
+}
+.letter-spacing-sm { 
+    letter-spacing: 2px;
+}
+.letter-spacing-md {
+    letter-spacing: 5px;
+}
+.letter-spacing-lg {
+    letter-spacing: 7px;
+}
+.input-group-text {
+    background-color: $orange-color;
+    border: 0;
+    width: 80px;
+    text-align: center !important;
+    display: inline-block;
+    border-top-left-radius: $border-radius-small;
+    border-bottom-left-radius: $border-radius-small;
+}
+.form-control, .form-control:disabled {
+    background-color: $gray-dark-color;
+    border: 0;
+    color: $light-color;
+    border-radius: $border-radius-small;
+}
+hr {
+    opacity: 1;
+}
