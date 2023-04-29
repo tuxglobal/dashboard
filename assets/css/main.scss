@@ -2,6 +2,7 @@
 
 $border-radius: 25px;
 $border-radius-small: 15px;
+$border-radius-xsmall: 10px;
 $padding: 20px;
 $light-color: #fff;
 $dark-color: #000;
@@ -11,6 +12,7 @@ $gray-color: #595a5a;
 $gray-dark-color: #433d3e;
 $orange-color: #e7b964;
 $orange-dark-color: #d9ac57;
+
 
 body {
     background: $red-color;
@@ -35,7 +37,7 @@ h1 {
 .btn {
     border-radius: $border-radius-small;
 }
-.btn-primary {
+.btn-primary, .certificate .btn-danger, .certificate .btn-secondary, .certificate .btn-info {
     background-color: $orange-color;
     border: 0;
     font-weight: 500;
@@ -45,17 +47,51 @@ h1 {
     font-size: 20px;
     letter-spacing: 1px;
 }
+.certificate .btn.btn-sm {
+    border-radius: $border-radius-xsmall;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+}
 .btn-primary:hover {
     background-color: $orange-dark-color;
     border: 0;
 }
-.btn-secondary {
+.certificate .btn-secondary {
     background-color: $red-bright-color;
     border: 0;
 }
-.btn-secondary:hover {
+.certificate .btn-secondary:hover {
     background-color: $red-bright-color;
     border: 0;
+}
+.certificate .btn-info {
+    background-color: $red-bright-color;
+    border: 0;
+}
+.certificate .btn-info:hover {
+    background-color: $red-bright-color;
+    border: 0;
+}
+.certificate .btn-danger {
+    background-color: $red-bright-color;
+    border: 0;
+    color: $light-color;
+}
+.certificate .btn-danger:hover {
+    background-color: $red-bright-color;
+    border: 0;
+    color: $light-color;
+}
+.certificate .btn-primary {
+    background-color: $gray-color;
+}
+.certificate .btn-primary:hover {
+    background-color: $gray-dark-color;
+}
+.certificate .btn {
+    color: $light-color !important;
 }
 .card {
     background-color: $gray-color;
@@ -102,4 +138,15 @@ table.card-text, table.card-text th, table.card-text td {
 }
 hr {
     opacity: 1;
+}
+.certificate {
+    background-color: $orange-color;
+    color: $dark-color;
+    padding-left: 0;
+    padding-right: 0;
+}
+.certificate table th, .certificate table td {
+    color: $dark-color !important;
+    font-weight: normal !important;
+    border: 0;
 }
