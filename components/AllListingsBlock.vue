@@ -1,7 +1,7 @@
 <template>
     <div class="card h-100">
         <div class="card-body">
-            <h5 class="card-title mb-5">All Listings</h5>
+            <h5 class="card-title mb-3">All Listings</h5>
             <div class="card-text">
             </div>
         </div>

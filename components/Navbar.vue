@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
-                <NuxtLink to="/" class="navbar-brand">TUX</NuxtLink>
+                <NuxtLink to="/" class="navbar-brand"><img src="images/tux-logo-web.png" style="max-height: 40px;" /></NuxtLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -13,9 +13,9 @@
                         </li>-->
                     </ul>
                     <div class="d-flex">
-                        <a href="https://faucetlink.to/sepolia" target="_new" class="btn btn-lg btn-info me-1">Sepolia Faucets</a>
-                        <button v-show="!connected" @click="connect" type="button" class="btn btn-lg btn-info">Connect Wallet</button>
-                        <button v-show="connected" @click="mintUsdc" type="button" class="btn btn-lg btn-info">Mint USDC</button>
+                        <a href="https://faucetlink.to/sepolia" target="_new" class="btn btn-primary btn-lg btn-info me-3">Sepolia Faucets</a>
+                        <button v-show="!connected" @click="connect" type="button" class="btn btn-primary btn-lg btn-info">Connect Wallet</button>
+                        <button v-show="connected" @click="mintUsdc" type="button" class="btn btn-primary btn-lg btn-info">Mint USDC</button>
                     </div>
                 </div>
             </div>

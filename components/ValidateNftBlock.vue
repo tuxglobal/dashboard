@@ -1,11 +1,14 @@
 <template>
     <div class="card h-100">
         <div class="card-body">
-            <h5 class="card-title mb-5">Validate NFT</h5>
+            <h5 class="card-title mb-3">Validate Certificate</h5>
             <div class="card-text">
+
                 <div class="mb-3">
-                    <label for="id" class="form-label">NFT Id</label>
-                    <input type="number" v-model="id" class="form-control" id="id"/>
+                    <div class="input-group">
+                        <div class="input-group-text p-3 bright-red-bg fs-3 text-white">#</div>
+                        <input type="number" v-model="id" class="form-control p-3 inline" id="id"/>
+                    </div>
                 </div>
                 <button @click="validate" class="btn btn-primary mt-3 mb-3">Validate</button>
                 <div v-show="nft.id != null">
