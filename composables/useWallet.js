@@ -46,6 +46,8 @@ export const useWallet = () => {
     const refresh = async () => {
         if(refreshingWallet) return;
         refreshingWallet = true;
+        wcnfts.value = [];
+        rcnfts.value = [];
         await refreshWallet();
         ethBalance.value = await provider.value.getBalance(address.value);
         usdcBalance.value = await useErc20().balance('Usdc', address.value);
