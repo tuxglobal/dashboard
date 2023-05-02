@@ -2,8 +2,7 @@
     <div class="card certificate">
         <div class="row g-0">
             <div class="col-md-4">
-                <!-- <img :src="image" class="img-fluid rounded-start" :alt="stakeTypeString + ' #' + id"> -->
-                <img src="https://cloudflare-ipfs.com/ipfs/QmQpWARKF1soQ3FLdNzuguYJ3eAdrKhEV6MmHC5cvXa85p/wc5000.png" class="img-fluid rounded-start" :alt="stakeTypeString + ' #' + id">
+                <img :src="image" class="img-fluid rounded-start" :alt="stakeTypeString + ' #' + id">
             </div>
             <div class="col-md-8">
                 <div class="card-body ps-0 pe-0 pt-0">
